@@ -114,13 +114,22 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 ### NestJS Server Running
 
 ![Server](screenshots/server.png)
-## 📸 Day 2 Screenshots
-(screenshots/day2/gym-backend/screenshots/day2/Screenshot 2026-06-19 182638.png)
+![](get-api.png)
+
+# 📸 Day 2 Screenshots
+
+## 1️⃣ GET API Response (Browser)
+
+![GET API Response](screenshots/day2/get-api-response.png)
 
 ---
-(screenshots/day2/gym-backend/screenshots/day2/Screenshot 2026-06-19 182708.png)
+
+## 2️⃣ GET API Response (Postman)
+
+![GET API Response - Postman](screenshots/day2/postman-get-response.png)
 
 ---
-(screenshots/day2/gym-backend/screenshots/day2/Screenshot 2026-06-19 182725.png)
 
----
+## 3️⃣ Validation Error (Bad Request)
+
+![Validation Error](screenshots/day2/validation-error.png)
