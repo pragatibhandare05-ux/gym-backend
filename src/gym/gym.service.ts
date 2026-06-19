@@ -16,7 +16,12 @@ export class GymService {
   ];
 
   getAllGyms() {
-    return this.gyms;
+    return {
+      success: true,
+      message: 'Gym List Retrieved Successfully',
+      totalGyms: this.gyms.length,
+      data: this.gyms,
+    };
   }
 
   addGym(gym: any) {
@@ -30,6 +35,7 @@ export class GymService {
     this.gyms.push(newGym);
 
     return {
+      success: true,
       message: 'Gym Added Successfully',
       gym: newGym,
     };

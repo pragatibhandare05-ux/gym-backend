@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { GymService } from './gym.service';
+import { CreateGymDto } from './dto/create-gym.dto';
 
 @Controller('gym')
 export class GymController {
@@ -10,8 +11,18 @@ export class GymController {
     return this.gymService.getAllGyms();
   }
 
+  @Get(':id')
+  getGymById(@Param('id') id: string) {
+    console.log('Route Parameter:', id);
+
+    return {
+      message: 'Gym Found',
+      id: id,
+    };
+  }
+
   @Post()
-  createGym(@Body() body: any) {
-    return this.gymService.addGym(body);
+  createGym(@Body() createGymDto: CreateGymDto) {
+    return this.gymService.addGym(createGymDto);
   }
 }
