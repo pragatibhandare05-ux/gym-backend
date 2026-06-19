@@ -114,3 +114,26 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 ### NestJS Server Running
 
 ![Server](screenshots/server.png)
+## 📸 Day 2 Screenshots
+
+### 1. Valid POST Request
+
+![Valid POST Request](screenshots/day2/valid-request.png)
+
+---
+
+### 2. Validation Error (Empty Name)
+
+![Validation Error](screenshots/day2/invalid-request.png)
+
+---
+
+### 3. Missing Required Field
+
+![Missing Field](screenshots/day2/missing-field.png)
+
+---
+
+### 4. Wrong Data Type
+
+![Wrong Data Type](screenshots/day2/validation-error.png)
