@@ -70,11 +70,17 @@ http://localhost:3000
 
 ---
 
-![GET API](screenshots/day1/get-api.png)
+## GET API Response
 
-![POST API](screenshots/day1/post-api.png)
+![GET API](screenshots/get-api.png)
 
-![Server](screenshots/day1/server.png)
+## POST API Response
+
+![POST API](screenshots/post-api.png)
+
+## NestJS Server Running
+
+![Server](screenshots/server.png)
 
 # 📸 Day 2 Screenshots
 
