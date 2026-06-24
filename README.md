@@ -70,6 +70,12 @@ http://localhost:3000
 
 ---
 
+![GET API](screenshots/day1/get-api.png)
+
+![POST API](screenshots/day1/post-api.png)
+
+![Server](screenshots/day1/server.png)
+
 # 📸 Day 2 Screenshots
 
 ### GET API Response (Browser)
