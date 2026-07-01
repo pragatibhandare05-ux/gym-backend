@@ -38,9 +38,15 @@ export class AuthService {
       password: hashedPassword,
     });
 
+    // Return user details without password
     return {
       message: 'User registered successfully',
-      user,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
     };
   }
 
@@ -48,13 +54,8 @@ export class AuthService {
   async login(loginDto: LoginDto) {
     const { email, password } = loginDto;
 
-    console.log('================ LOGIN DEBUG ================');
-    console.log('Login Email:', email);
-
     // Find user by email
     const user = await this.usersService.findByEmail(email);
-
-    console.log('User Found:', user);
 
     if (!user) {
       throw new UnauthorizedException('Invalid email or password');
@@ -62,8 +63,6 @@ export class AuthService {
 
     // Compare password
     const isPasswordValid = await bcrypt.compare(password, user.password);
-
-    console.log('Password Match:', isPasswordValid);
 
     if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid email or password');
@@ -75,8 +74,6 @@ export class AuthService {
       email: user.email,
       role: user.role,
     };
-
-    console.log('JWT Payload:', payload);
 
     // Generate JWT token
     const accessToken = this.jwtService.sign(payload);
