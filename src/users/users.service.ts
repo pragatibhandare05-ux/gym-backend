@@ -26,4 +26,54 @@ export class UsersService {
   async findById(id: string): Promise<User | null> {
     return this.userModel.findById(id);
   }
+
+  // Analytics API
+  async getAnalytics() {
+    console.time('Analytics Query');
+    
+    console.log('========== Analytics API Called ==========');
+
+    const result = await this.userModel.aggregate([
+      {
+        $facet: {
+          totalUsers: [
+            {
+              $count: 'count',
+            },
+          ],
+          adminCount: [
+            {
+              $match: {
+                role: 'admin',
+              },
+            },
+            {
+              $count: 'count',
+            },
+          ],
+          userCount: [
+            {
+              $match: {
+                role: 'user',
+              },
+            },
+            {
+              $count: 'count',
+            },
+          ],
+        },
+      },
+    ]);
+
+    console.log(
+      'Aggregation Result:\n',
+      JSON.stringify(result, null, 2),
+    );
+console.timeEnd('Analytics Query');
+    return {
+      totalUsers: result[0].totalUsers[0]?.count || 0,
+      adminCount: result[0].adminCount[0]?.count || 0,
+      userCount: result[0].userCount[0]?.count || 0,
+    };
+  }
 }
